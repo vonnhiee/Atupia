@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kuis Seniora Akademik - SMPK Santo Yusup Mojokerto</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastel: {
+                            blue: '#60A5FA',
+                            blueBg: '#EFF6FF',
+                            yellow: '#FBBF24',
+                            yellowBg: '#FEF3C7',
+                            green: '#34D399',
+                            greenBg: '#ECFDF5',
+                            purple: '#A78BFA',
+                            purpleBg: '#F5F3FF',
+                            pink: '#F472B6',
+                            pinkBg: '#FDF2F8',
+                        }
+                    },
+                    borderRadius: {
+                        '4xl': '2rem'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Pengaturan Touch HP, Font, & Scrollbar */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        body {
+            font-family: 'Fredoka', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #F8FAFC;
+        }
+        .custom-scroll::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 99px;
+        }
+        /* Efek Tombol Timbul Gemas (3D Soft Button) */
+        .btn-3d {
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 5px 0 0 rgba(0,0,0,0.12);
+        }
+        .btn-3d:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 0 rgba(0,0,0,0.12);
+        }
+        .card-pop {
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.05);
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            .print-only {
+                display: block !important;
+            }
+            body {
+                background: white !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-full flex flex-col justify-between text-slate-800 antialiased select-none">
+
+    <!-- HEADER BAR GEMAS -->
+    <header class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b-2 border-slate-100 px-4 py-2.5">
+        <div class="max-w-lg mx-auto flex items-center justify-between gap-2">
+            
+            <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-sky-400 to-blue-500 text-white flex items-center justify-center font-black text-lg shadow-sm transform -rotate-3">
+                    ✏️
+                </div>
+                <div>
+                    <h1 class="text-xs font-black text-slate-900 leading-none flex items-center gap-1">
+                        Seniora Akademik <span class="text-[10px] px-1.5 py-0.5 bg-yellow-300 text-yellow-900 rounded-full font-black">2026/2027</span>
+                    </h1>
+                    <p class="text-[10px] font-bold text-slate-400">SMPK Santo Yusup Mojokerto</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+                <!-- Mute / Unmute SFX Button -->
+                <button id="sfx-toggle-btn" onclick="toggleSFX()" class="w-9 h-9 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl flex items-center justify-center font-bold text-sm border border-slate-200 transition">
+                    🔊
+                </button>
+                
+                <!-- Home Button -->
+                <button onclick="showHome()" class="px-3 py-2 bg-sky-100 hover:bg-sky-200 text-sky-800 rounded-xl text-xs font-black border border-sky-200 flex items-center gap-1 transition">
+                    🏠 <span class="hidden sm:inline">Beranda</span>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- CONTAINER UTAMA -->
+    <main class="flex-1 max-w-lg w-full mx-auto p-3.5 sm:p-5 flex flex-col justify-center">
+
+        <!-- 1. BERANDA & FORM DATA DIRI (TANPA LOGIN) -->
+        <section id="view-home" class="space-y-4">
+            
+            <!-- Banner Gemas -->
+            <div class="bg-gradient-to-br from-sky-400 via-indigo-400 to-pink-400 rounded-3xl p-5 text-white shadow-lg relative overflow-hidden text-center sm:text-left">
+                <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-white/20 rounded-full blur-xl pointer-events-none"></div>
+                <div class="inline-block px-3 py-1 bg-white/30 backdrop-blur-md text-white font-extrabold text-[10px] rounded-full uppercase tracking-wider mb-2 border border-white/40">
+                    ✨ Kuis Latihan Akademik
+                </div>
+                <h2 class="text-lg sm:text-xl font-black leading-tight drop-shadow-sm">Siap Berprestasi Bersama! 🚀</h2>
+                <p class="text-xs text-sky-50 mt-1 leading-relaxed">
+                    Yuk persiapkan dirimu menghadapi Seniora Akademik SMPK Santo Yusup Mojokerto!
